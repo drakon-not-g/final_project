@@ -1,5 +1,4 @@
-from flask import Flask, render_template, redirect, url_for, request
-import Pillow
+from flask import Flask, render_template, redirect, url_for, reques, PIL
 
 app = Flask(__name__)
 
