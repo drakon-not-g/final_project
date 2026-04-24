@@ -15,7 +15,7 @@ def create_db():
     sql = """
     CREATE TABLE IF NOT EXISTS picture(
         id INTEGER PTIMARY KEY AUTOINCREMENT,
-        picture VARCHAR(1000) NOT NULL DEFAULT'',
+        picture_link VARCHAR(1000) NOT NULL DEFAULT'',
         user_id INTEGER,
         FOREIGN_KEY(user_id) REFERENCES user(id)
     )

@@ -7,10 +7,19 @@
 </head>
 <body>
     <h1>CAT MEME</h1>
-    <h2>hello -user-, create your cat memew</h2>
+    <h2>hello {{ login }}, create your cat memew</h2>
     <a href="{{ url_for('login') }}"><button>Войти в другой аккаунт</button></a>
-    <a href="{{ url_for('gareley') }}"><button>гарелерея</button></a>
+    <a href="{{ url_for('gareley') }}"><button>гарелея</button></a>
     <a href="{{ url_for('register') }}"><button>новый аккаунт</button></a>
-    <a href="{{ url_for('creater') }}"><img src="" alt=""></a>
+    <a href="{{ url_for('creater') }}"><img src="{{ url_for('static'), filename='1.jpg'}}"></a>
+    <a href="{{ url_for('creater') }}"><img src="{{ url_for('static'), filename='2.jpg'}}"></a>
+    <a href="{{ url_for('creater') }}"><img src="{{ url_for('static'), filename='3.jpg'}}"></a>
+    <a href="{{ url_for('creater') }}"><img src="{{ url_for('static'), filename='4.jpg'}}"></a>
+    <a href="{{ url_for('creater') }}"><img src="{{ url_for('static'), filename='5.jpg'}}"></a>
+    <a href="{{ url_for('creater') }}"><img src="{{ url_for('static'), filename='6.jpg'}}"></a>
+    <a href="{{ url_for('creater') }}"><img src="{{ url_for('static'), filename='7.jpg'}}"></a>
+    <a href="{{ url_for('creater') }}"><img src="{{ url_for('static'), filename='8.jpg'}}"></a>
+    <a href="{{ url_for('creater') }}"><img src="{{ url_for('static'), filename='9.jpg'}}"></a>
+    <a href="{{ url_for('creater') }}"><img src="{{ url_for('static'), filename='10.jpg'}}"></a>
 </body>
 </html>

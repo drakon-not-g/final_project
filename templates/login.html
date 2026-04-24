@@ -6,6 +6,25 @@
     <title>Login</title>
 </head>
 <body>
-    
+    <h1>log in to your account</h1>
+    <h2>hello user what is you nickname</h1>
+    <form action="/login" method="POST">
+        <div>
+            <label for="">Логин:</label>
+            <input type="text" name="login">
+        </div>
+        <div>
+            <label for="">Пароль:</label>
+            <input type="password" name="password">
+        </div>
+        <div>
+            <input type="submit" value="войти">
+        </div>
+    </form>
+    <div class="errors">
+        {% for error in errors %}
+        <p>{{ error }}</p>
+        {% endfor %}
+    </div>
 </body>
 </html>
