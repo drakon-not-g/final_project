@@ -6,4 +6,6 @@
 }
 .link button{
     background-color:RED ;
-}
+    border: crimson;
+    border-style: none;
+} 
