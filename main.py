@@ -12,8 +12,8 @@ def creater():
     return render_template("creater.html")
 
 @app.route("/gareley")
-def garely():
-    return render_template("garely.html")
+def gareley():
+    return render_template("gareley.html")
 
 @app.route("/login")
 def login():
