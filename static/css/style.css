@@ -1,11 +1,17 @@
 .errors p{
     color: red;
 }
-.template img{
-    width: 460;
+img{
+    width: 374px;
+    height: 296px;
+    border-radius: 2px;
+    outline: auto;
+    outline-color: red;
+    margin-top: auto;
+    
 }
 .link button{
     background-color:RED ;
-    border: crimson;
-    border-style: none;
+    outline: auto;
+    outline-color: crimson;
 } 
