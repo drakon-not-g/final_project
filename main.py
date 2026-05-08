@@ -15,9 +15,25 @@ def creater():
 def gareley():
     return render_template("gareley.html")
 
-@app.route("/login")
+@app.route("/login", methods=["POST","GET"])
 def login():
-    return render_template("login.html")
+    if request.method == "GET":
+        return render_template("login.html")
+    elif request.method == "POST":
+        login = request.form['login']
+        password = request.form["password"]
+
+        auth_user = database.auth_user(login, password)
+        if auth_user == None:
+            return render_template(
+                "login.html",
+                errors=["Неверный логин или пароль"]
+            )
+        else:
+            print('успешный вход')
+            session["user_id"] = auth_user["user_id"]
+            session["login"] = auth_user["user_login"]
+            return redirect(url_for('index'))
 
 @app.route("/register", methods=["POST","GET"])
 def register():
