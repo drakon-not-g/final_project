@@ -1,8 +1,13 @@
 .errors p{
     color: red;
 }
-img{
-    width: 374px;
+.errors img{
+    width: 1500px;
+    height: 500px;
+}
+
+input{
+    width: 370px;
     height: 296px;
     border-radius: 2px;
     outline: auto;
@@ -15,3 +20,9 @@ img{
     outline: auto;
     outline-color: crimson;
 } 
+
+.forms{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}

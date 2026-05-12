@@ -7,9 +7,11 @@ app = Flask(__name__)
 def index():
     return render_template("index.html")
 
-@app.route("/creater")
+@app.route("/creater", methods=["GET", "POST"])
 def creater():
-    return render_template("creater.html")
+    if request.method == "POST":
+        img_url = request.form.get("image")
+    return render_template("creater.html", image_url=img_url)
 
 @app.route("/gareley")
 def gareley():

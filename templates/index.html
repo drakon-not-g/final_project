@@ -7,6 +7,7 @@
     <title>mem_cat</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
 </head>
+
 <body>
     <h1>CAT MEME</h1>
     <h2>hello {{ login }}, create your cat memew</h2>
@@ -15,17 +16,48 @@
         <a href="{{ url_for('gareley') }}"><button>гарелея</button></a>
         <a href="{{ url_for('register') }}"><button>новый аккаунт</button></a>
     </div>
-    <div class="template">
-        <a href="{{ url_for('creater') }}"><img src="{{ url_for('static', filename='img/1.jpg')}}"></a>
-        <a href="{{ url_for('creater') }}"><img src="{{ url_for('static', filename='img/2.jpg')}}"></a>
-        <a href="{{ url_for('creater') }}"><img src="{{ url_for('static', filename='img/3.jpg')}}"></a>
-        <a href="{{ url_for('creater') }}"><img src="{{ url_for('static', filename='img/4.jpg')}}"></a>
-        <a href="{{ url_for('creater') }}"><img src="{{ url_for('static', filename='img/5.jpg')}}"></a>
-        <a href="{{ url_for('creater') }}"><img src="{{ url_for('static', filename='img/6.jpg')}}"></a>
-        <a href="{{ url_for('creater') }}"><img src="{{ url_for('static', filename='img/7.jpg')}}"></a>
-        <a href="{{ url_for('creater') }}"><img src="{{ url_for('static', filename='img/8.jpg')}}"></a>
-        <a href="{{ url_for('creater') }}"><img src="{{ url_for('static', filename='img/9.jpg')}}"></a>
-        <a href="{{ url_for('creater') }}"><img src="{{ url_for('static', filename='img/10.jpg')}}"></a>
+    <div class="forms">
+        <form action="{{ url_for('creater') }}" method="POST">
+            <input type="image" src="{{ url_for('static', filename='img/1.jpg')}}" alt="Отправить" width="200">
+            <input type="hidden" name="image" value="{{ url_for('static', filename='img/1.jpg')}}">
+        </form>
+        <form action="{{ url_for('creater') }}" method="POST">
+            <input type="image" src="{{ url_for('static', filename='img/2.jpg')}}" alt="Отправить" width="200">
+            <input type="hidden" name="image" value="{{ url_for('static', filename='img/2.jpg')}}">
+        </form>
+        <form action="{{ url_for('creater') }}" method="POST">
+            <input type="image" src="{{ url_for('static', filename='img/3.jpg')}}" alt="Отправить" width="200">
+            <input type="hidden" name="image" value="{{ url_for('static', filename='img/3.jpg')}}">
+        </form>
+        <form action="{{ url_for('creater') }}" method="POST">
+            <input type="image" src="{{ url_for('static', filename='img/4.jpg')}}" alt="Отправить" width="200">
+            <input type="hidden" name="image" value="{{ url_for('static', filename='img/4.jpg')}}">
+        </form>
+        <form action="{{ url_for('creater') }}" method="POST">
+            <input type="image" src="{{ url_for('static', filename='img/5.jpg')}}" alt="Отправить" width="200">
+            <input type="hidden" name="image" value="{{ url_for('static', filename='img/5.jpg')}}">
+        </form>
+        <form action="{{ url_for('creater') }}" method="POST">
+            <input type="image" src="{{ url_for('static', filename='img/6.jpg')}}" alt="Отправить" width="200">
+            <input type="hidden" name="image" value="{{ url_for('static', filename='img/6.jpg')}}">
+        </form>
+        <form action="{{ url_for('creater') }}" method="POST">
+            <input type="image" src="{{ url_for('static', filename='img/7.jpg')}}" alt="Отправить" width="200">
+            <input type="hidden" name="image" value="{{ url_for('static', filename='img/7.jpg')}}">
+        </form>
+        <form action="{{ url_for('creater') }}" method="POST">
+            <input type="image" src="{{ url_for('static', filename='img/8.jpg')}}" alt="Отправить" width="200">
+            <input type="hidden" name="image" value="{{ url_for('static', filename='img/8.jpg')}}">
+        </form>
+        <form action="{{ url_for('creater') }}" method="POST">
+            <input type="image" src="{{ url_for('static', filename='img/9.jpg')}}" alt="Отправить" width="200">
+            <input type="hidden" name="image" value="{{ url_for('static', filename='img/9.jpg')}}">
+        </form>
+        <form action="{{ url_for('creater') }}" method="POST">
+            <input type="image" src="{{ url_for('static', filename='img/10.jpg')}}" alt="Отправить" width="200">
+            <input type="hidden" name="image" value="{{ url_for('static', filename='img/10.jpg')}}">
+        </form>
     </div>
 </body>
+
 </html>

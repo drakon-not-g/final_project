@@ -30,6 +30,7 @@
     <div class="errors">
         {% for error in errors %}
         <p>{{ error }}</p>
+        <img src="{{ url_for('static', filename='img/error_img.jpg')}}">
         {% endfor %}
     </div>
 </body>
