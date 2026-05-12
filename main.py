@@ -7,9 +7,11 @@ app = Flask(__name__)
 def index():
     return render_template("index.html")
 
-@app.route("/creater")
+@app.route("/creater", methods=["POST","GET"])
 def creater():
-    return render_template("creater.html")
+    if request.method == "POST":
+        img_url = request.form.get("image")
+    return render_template("creater.html", image_url=img_url)
 
 @app.route("/gareley")
 def gareley():
@@ -58,5 +60,11 @@ def register():
             return render_template("login.html")
         else:
             return render_template("register.html", errors=errors)
+
+@app.route("/logout")
+def logout():
+    session.clear()
+    return redirect(url_for("login"))    
+    
 if __name__ == "__main__":
     app.run(debug=True)
