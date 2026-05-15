@@ -1,0 +1,21 @@
+
+
+input{
+    width: 370px;
+    height: 296px;
+    border-radius: 2px;
+    outline: auto;
+    outline-color: red;
+    margin-top: auto;   
+}
+.link button{
+    background-color:RED ;
+    outline: auto;
+    outline-color: crimson;
+} 
+
+.forms {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}

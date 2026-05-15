@@ -4,10 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>register</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/reg.css')}}">
 </head>
 <body>
-    <h1>hello what is you nickname</h1>
-
+    <h1>registermew</h1>
+    <h2>hello user what is you nickname</h1>
+    <img src="{{ url_for('static', filename='img/reg_img.jpg')}}">
+    <form action="/register" method="POST">
+        <div>
+            <label for="">Логин:</label>
+            <input type="text" name="login">
+        </div>
+        <div>
+            <label for="">Пароль:</label>
+            <input type="password" name="pass1">
+        </div>
+        <div>
+            <label for="">Подтверждение пароля:</label>
+            <input type="password" name="pass2">
+        </div>
+        <div>
+            <input type="submit" value="Регистрация">
+        </div>
+    </form>
     <a href="{{ url_for('login') }}"><button>Войти в аккаунт</button></a>
+    <div class="errors">
+        {% for error in errors %}
+        <p>{{ error }}</p>
+        <img src="{{ url_for('static', filename='img/error_img.jpg')}}">
+        {% endfor %}
+    </div>
 </body>
 </html>
