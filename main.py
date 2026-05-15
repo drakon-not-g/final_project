@@ -12,6 +12,18 @@ def creater():
     if request.method == "POST":
         img_url = request.form.get("image")
     return render_template("creater.html", image_url=img_url)
+    redacting_img = img_url
+
+    draw = ImageDraw.Draw(redacting_image)
+
+    font = ImageFont.truetype('arial.ttf', size=45)
+
+    (x, y) = (50, 50)
+    text_color = 'rgb(0, 255, 0)'
+
+    draw.text((x, y), 'Bye World!', fill=text_color, font=font)
+
+    image.save('image_with_text.jpg') 
 
 @app.route("/gareley")
 def gareley():
