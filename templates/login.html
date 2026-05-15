@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/log.css')}}">
 </head>
 <body>
     <h1>log in to your account</h1>
-    <h2>hello user what is you nickname</h1>
+    <h2>hello user what is you nicknamew</h1>
     <form action="/login" method="POST">
         <div>
             <label for="">Логин:</label>
@@ -21,6 +22,7 @@
             <input type="submit" value="войти">
         </div>
     </form>
+    <img src="{{ url_for('static', filename='img/login_img.jpg')}}">
     <div class="errors">
         {% for error in errors %}
         <p>{{ error }}</p>
