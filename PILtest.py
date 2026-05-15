@@ -1,6 +1,6 @@
 from PIL import Image, ImageDraw, ImageFont
-image = Image.open('C://Users\\Student\\Documents\\final_project\\static\\2.jpg')
-
+image = Image.open('C://Users\\Student\\Documents\\final_project\\static\\img\\2.jpg')
+print(image)
 draw = ImageDraw.Draw(image)
 
 font = ImageFont.truetype('arial.ttf', size=45)
