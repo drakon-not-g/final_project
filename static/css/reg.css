@@ -1,0 +1,12 @@
+.errors p{
+    color: red;
+}
+.errors img{
+    width: 1500px;
+    height: 500px;
+}
+
+img{
+    width: 1500px;
+    height: 400px;
+}

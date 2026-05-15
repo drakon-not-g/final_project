@@ -1,10 +1,4 @@
-.errors p{
-    color: red;
-}
-.errors img{
-    width: 1500px;
-    height: 500px;
-}
+
 
 input{
     width: 370px;
@@ -12,8 +6,7 @@ input{
     border-radius: 2px;
     outline: auto;
     outline-color: red;
-    margin-top: auto;
-    
+    margin-top: auto;   
 }
 .link button{
     background-color:RED ;
@@ -21,7 +14,7 @@ input{
     outline-color: crimson;
 } 
 
-.forms{
+.forms {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
