@@ -42,7 +42,7 @@ def is_user_exists(login):
     return user != None
 
 def auth_user(password,login):
-    conn = sqlite3.connect("todo.db")
+    conn = sqlite3.connect("CAT_MEMES.db")
     cursor = conn.cursor()
 
     cursor.execute("SELECT * FROM user WHERE login=?",(login,))
@@ -59,6 +59,11 @@ def auth_user(password,login):
     else:
         return None
 
+def add_picture(picture,user_id):
+    conn = sqlite3.connect("CAT_MEMES.db")
+    cursor = conn.cursor()
+
+    cursor.execute("INSERT INTO picture(picture_link,user_id) VALUES(?,?)",(picture,user_id))
 
 if __name__ == "__main__":
     create_db()

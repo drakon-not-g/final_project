@@ -9,25 +9,27 @@ def index():
 
 @app.route("/creater", methods=["POST","GET"])
 def creater():
-    if request.method == "POST":
+    if request.method == "GET":
+        ...
+    elif request.method == "POST":
         img_url = request.form.get("image")
 
-    image = Image.open('C:/Users/Student/Documents/final_project' + img_url)
+        image = Image.open('D:/myProjects/final_project' + img_url)
 
-    draw = ImageDraw.Draw(image)
+        draw = ImageDraw.Draw(image)
 
-    font = ImageFont.truetype('arial.ttf', size=45)
+        font = ImageFont.truetype('arial.ttf', size=45)
 
-    x = request.form["x"]
-    y = request.form["y"]
 
-    text = request.form["img_text"]
 
-    text_color = 'rgb(0, 255, 0)'
+        x = int(request.form["x"])
+        y = int(request.form["y"])
 
-    draw.text((x, y), text, fill=text_color, font=font)
+        text_color = 'rgb(0, 255, 0)'
 
-    image.save('image_with_text.jpg') 
+        draw.text((x, y), "lolkekcheburek", fill=text_color, font=font)
+
+        database.add_picture(image.save('image_with_text.jpg'),session["user_id"]) 
 
     return render_template("creater.html", image_url=img_url)
 
