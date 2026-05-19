@@ -10,7 +10,7 @@
 <body>
     <h1>create your catmew</h1>
     <img src="{{ image_url }}" alt="">
-    <form action="" method="post">
+    <form action="{{ url_for('creater_img') }}" method="post">
         <div>
             <h2>текст</h2>
             <input type="text" name="img_text">
@@ -21,8 +21,9 @@
             <input type="number" name="x" id="">
             <input type="number" name="y" id="">
         </div>
+        <input type="hidden" name="image" value="{{ image_url }}">
     </form>
-    <button type="submit">загрузить</button>
+    <button type="submit">регистрация</button>
 </body>.
 
 </html>

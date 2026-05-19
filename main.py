@@ -1,5 +1,5 @@
 from flask import Flask, render_template, redirect, url_for, request, session
-from PIL import Image, ImageDraw, ImageFont
+# from PIL import Image, ImageDraw, ImageFont
 import database
 app = Flask(__name__)
 
@@ -12,26 +12,33 @@ def creater():
     if request.method == "GET":
         ...
     elif request.method == "POST":
+        print(request.form)
         img_url = request.form.get("image")
+        return render_template("creater.html", image_url=img_url)
 
-        image = Image.open('D:/myProjects/final_project' + img_url)
-
-        draw = ImageDraw.Draw(image)
-
-        font = ImageFont.truetype('arial.ttf', size=45)
-
-
-
-        x = int(request.form["x"])
-        y = int(request.form["y"])
-
-        text_color = 'rgb(0, 255, 0)'
-
-        draw.text((x, y), "lolkekcheburek", fill=text_color, font=font)
-
-        database.add_picture(image.save('image_with_text.jpg'),session["user_id"]) 
+        
 
     return render_template("creater.html", image_url=img_url)
+
+# @app.route("/creater_img", methods=["POST"])
+# def creater_img():
+#     img_url = request.form.get("image")
+#     image = Image.open('C:/Users/Student/Documents/final_project' + img_url)
+
+#     draw = ImageDraw.Draw(image)
+
+#     font = ImageFont.truetype('arial.ttf', size=45)
+
+#     text = request.form["img_text"]
+
+#     x = int(request.form["x"])
+#     y = int(request.form["y"])
+
+#     text_color = 'rgb(0, 255, 0)'
+
+#     draw.text((x, y), text, fill=text_color, font=font)
+
+#     database.add_picture(image.save('image_with_text.jpg'),session["user_id"]) 
 
 @app.route("/gareley")
 def gareley():

@@ -26,11 +26,13 @@ def create_db():
     conn.commit()
 
 def add_user(login, password):
+    print("Добавляем фдоутвдот")
     conn = sqlite3.connect("CAT_MEMES.db")
     cursor = conn.cursor()
     hashed_password = generate_password_hash(password)    
     
     cursor.execute('INSERT INTO user(login,password) VALUES(?,?)', (login,hashed_password))
+    conn.commit()
 
 def is_user_exists(login):
     conn = sqlite3.connect("CAT_MEMES.db")
