@@ -40,7 +40,7 @@ def is_user_exists(login):
     user = cursor.fetchone()
     
     return user != None
-
+                
 def auth_user(password,login):
     conn = sqlite3.connect("todo.db")
     cursor = conn.cursor()

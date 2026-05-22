@@ -1,7 +1,9 @@
 from flask import Flask, render_template, redirect, url_for, request, session
 from PIL import Image, ImageDraw, ImageFont
 import database
+
 app = Flask(__name__)
+app.secret_key = "64354xfac4sa5dsafd4"
 
 @app.route("/")
 def index():
