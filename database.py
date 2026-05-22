@@ -43,7 +43,7 @@ def is_user_exists(login):
     
     return user != None
 
-def auth_user(password,login):
+def auth_user(login,password):
     conn = sqlite3.connect("CAT_MEMES.db")
     cursor = conn.cursor()
 

@@ -1,7 +1,9 @@
 from flask import Flask, render_template, redirect, url_for, request, session
-# from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw, ImageFont
 import database
+
 app = Flask(__name__)
+app.secret_key = "a3487wgeyufrt2673g4yug"
 
 @app.route("/")
 def index():
@@ -20,25 +22,28 @@ def creater():
 
     return render_template("creater.html", image_url=img_url)
 
-# @app.route("/creater_img", methods=["POST"])
-# def creater_img():
-#     img_url = request.form.get("image")
-#     image = Image.open('C:/Users/Student/Documents/final_project' + img_url)
+@app.route("/creater_img", methods=["POST"])
+def creater_img():
+    print("robit ili net")
+    img_url = request.form.get("image")
+    image = Image.open('C:/Users/Student/Documents/final_project' + img_url)
 
-#     draw = ImageDraw.Draw(image)
+    print(image)
 
-#     font = ImageFont.truetype('arial.ttf', size=45)
+    draw = ImageDraw.Draw(image)
 
-#     text = request.form["img_text"]
+    font = ImageFont.truetype('arial.ttf', size=50)
 
-#     x = int(request.form["x"])
-#     y = int(request.form["y"])
+    text = request.form["img_text"]
 
-#     text_color = 'rgb(0, 255, 0)'
+    x = int(request.form["x"])
+    y = int(request.form["y"])
 
-#     draw.text((x, y), text, fill=text_color, font=font)
+    text_color = 'rgb(0, 255, 0)'
 
-#     database.add_picture(image.save('image_with_text.jpg'),session["user_id"]) 
+    draw.text((x, y), text, fill=text_color, font=font)
+
+    image.save('image_with_text.jpg')
 
 @app.route("/gareley")
 def gareley():
