@@ -13,19 +13,25 @@ def index():
 def creater():
     if request.method == "POST":
         img_url = request.form.get("image")
-    return render_template("creater.html", image_url=img_url)
-    redacting_img = img_url
 
-    draw = ImageDraw.Draw(redacting_image)
+    image = Image.open('C:/Users/Student/Documents/final_project' + img_url)
+
+    draw = ImageDraw.Draw(image)
 
     font = ImageFont.truetype('arial.ttf', size=45)
 
-    (x, y) = (50, 50)
+    x = request.form["x"]
+    y = request.form["y"]
+
+    text = request.form["img_text"]
+
     text_color = 'rgb(0, 255, 0)'
 
-    draw.text((x, y), 'Bye World!', fill=text_color, font=font)
+    draw.text((x, y), text, fill=text_color, font=font)
 
     image.save('image_with_text.jpg') 
+
+    return render_template("creater.html", image_url=img_url)
 
 @app.route("/gareley")
 def gareley():
