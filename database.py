@@ -26,11 +26,13 @@ def create_db():
     conn.commit()
 
 def add_user(login, password):
+    print("Добавляем фдоутвдот")
     conn = sqlite3.connect("CAT_MEMES.db")
     cursor = conn.cursor()
     hashed_password = generate_password_hash(password)    
     
     cursor.execute('INSERT INTO user(login,password) VALUES(?,?)', (login,hashed_password))
+    conn.commit()
 
 def is_user_exists(login):
     conn = sqlite3.connect("CAT_MEMES.db")
@@ -40,9 +42,9 @@ def is_user_exists(login):
     user = cursor.fetchone()
     
     return user != None
-                
-def auth_user(password,login):
-    conn = sqlite3.connect("todo.db")
+
+def auth_user(login,password):
+    conn = sqlite3.connect("CAT_MEMES.db")
     cursor = conn.cursor()
 
     cursor.execute("SELECT * FROM user WHERE login=?",(login,))
@@ -59,6 +61,11 @@ def auth_user(password,login):
     else:
         return None
 
+def add_picture(picture,user_id):
+    conn = sqlite3.connect("CAT_MEMES.db")
+    cursor = conn.cursor()
+
+    cursor.execute("INSERT INTO picture(picture_link,user_id) VALUES(?,?)",(picture,user_id))
 
 if __name__ == "__main__":
     create_db()

@@ -3,7 +3,7 @@ from PIL import Image, ImageDraw, ImageFont
 import database
 
 app = Flask(__name__)
-app.secret_key = "64354xfac4sa5dsafd4"
+app.secret_key = "a3487wgeyufrt2673g4yug"
 
 @app.route("/")
 def index():
@@ -11,27 +11,39 @@ def index():
 
 @app.route("/creater", methods=["POST","GET"])
 def creater():
-    if request.method == "POST":
+    if request.method == "GET":
+        ...
+    elif request.method == "POST":
+        print(request.form)
         img_url = request.form.get("image")
+        return render_template("creater.html", image_url=img_url)
 
+        
+
+    return render_template("creater.html", image_url=img_url)
+
+@app.route("/creater_img", methods=["POST"])
+def creater_img():
+    print("robit ili net")
+    img_url = request.form.get("image")
     image = Image.open('C:/Users/Student/Documents/final_project' + img_url)
+
+    print(image)
 
     draw = ImageDraw.Draw(image)
 
-    font = ImageFont.truetype('arial.ttf', size=45)
-
-    x = request.form["x"]
-    y = request.form["y"]
+    font = ImageFont.truetype('arial.ttf', size=50)
 
     text = request.form["img_text"]
+
+    x = int(request.form["x"])
+    y = int(request.form["y"])
 
     text_color = 'rgb(0, 255, 0)'
 
     draw.text((x, y), text, fill=text_color, font=font)
 
-    image.save('image_with_text.jpg') 
-
-    return render_template("creater.html", image_url=img_url)
+    image.save('image_with_text.jpg')
 
 @app.route("/gareley")
 def gareley():
