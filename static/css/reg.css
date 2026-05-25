@@ -4,9 +4,15 @@
 .errors img{
     width: 1500px;
     height: 500px;
+    background-repeat: no-repeat;
 }
-
 img{
     width: 1500px;
     height: 400px;
+    outline: auto;
+    outline-color:rgb(0, 0, 0);
+    border-radius: 10px;
+}
+body{
+    background-color: rgb(255, 140, 0);
 }

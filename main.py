@@ -1,13 +1,22 @@
+import uuid
+
 from flask import Flask, render_template, redirect, url_for, request, session
 from PIL import Image, ImageDraw, ImageFont
 import database
+import os
 
 app = Flask(__name__)
 app.secret_key = "a3487wgeyufrt2673g4yug"
 
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
 @app.route("/")
 def index():
-    return render_template("index.html")
+    
+    if "login" not in session:
+        return redirect(url_for("login"))
+    
+    return render_template("index.html", login=session["login"])
 
 @app.route("/creater", methods=["POST","GET"])
 def creater():
@@ -26,24 +35,33 @@ def creater():
 def creater_img():
     print("robit ili net")
     img_url = request.form.get("image")
-    image = Image.open('C:/Users/Student/Documents/final_project' + img_url)
+    img_url = img_url.lstrip("/")
 
-    print(image)
-
+    image_path = os.path.join(BASE_DIR, img_url)
+    
+    image = Image.open(image_path)
     draw = ImageDraw.Draw(image)
 
-    font = ImageFont.truetype('arial.ttf', size=50)
+    text = request.form.get("img_text")
 
-    text = request.form["img_text"]
+    x = int(request.form.get("x"))
+    y = int(request.form.get("y"))
+    
+    font_size = int(request.form.get("font_size"))
 
-    x = int(request.form["x"])
-    y = int(request.form["y"])
-
-    text_color = 'rgb(0, 255, 0)'
+    font = ImageFont.truetype("arial.ttf", size=font_size)
+    
+    text_color = (0, 0, 0)
 
     draw.text((x, y), text, fill=text_color, font=font)
-
-    image.save('image_with_text.jpg')
+    
+    output_name = f"{uuid.uuid4()}.jpg"
+    
+    output_path = os.path.join("static/memes", output_name)
+    
+    image.save(output_path)
+    
+    return redirect(f"/static/memes/{output_name}")
 
 @app.route("/gareley")
 def gareley():

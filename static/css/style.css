@@ -9,11 +9,14 @@ input{
 .link button{
     background-color:RED ;
     outline: auto;
-    outline-color: crimson;
+    outline-color: rgb(255, 0, 51);
 } 
 
 .forms {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
+}
+body{
+    background-color:rgb(5, 160, 0);
 }
