@@ -68,13 +68,14 @@ def add_picture(picture,user_id):
     cursor.execute("INSERT INTO picture(picture_link,user_id) VALUES(?,?)",(picture,user_id))
     conn.commit()
 
-def get_pictures():
+def get_pictures(user_id):
     conn = sqlite3.connect("CAT_MEMES.db")
     cursor = conn.cursor()
 
-    cursor.execute("SELECT picture_link FROM picture")
+    cursor.execute("SELECT * FROM picture WHERE user_id = ?",(user_id,))
     
-    return cursor.fetchall
+    imges = cursor.fetchall
+    return imges
 
 if __name__ == "__main__":
     create_db()

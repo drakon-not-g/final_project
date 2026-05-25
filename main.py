@@ -10,7 +10,11 @@ app.secret_key = "a3487wgeyufrt2673g4yug"
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-imges = database.get_pictures()
+imges = database.get_pictures(5)
+print(imges)
+print(imges)
+print(imges)
+print(imges)
 print(imges)
 
 @app.route("/")
