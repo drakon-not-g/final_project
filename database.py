@@ -66,6 +66,15 @@ def add_picture(picture,user_id):
     cursor = conn.cursor()
 
     cursor.execute("INSERT INTO picture(picture_link,user_id) VALUES(?,?)",(picture,user_id))
+    conn.commit()
+
+def get_pictures():
+    conn = sqlite3.connect("CAT_MEMES.db")
+    cursor = conn.cursor()
+
+    cursor.execute("SELECT picture_link FROM picture")
+    
+    return cursor.fetchall
 
 if __name__ == "__main__":
     create_db()
