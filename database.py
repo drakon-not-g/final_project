@@ -72,9 +72,9 @@ def get_pictures(user_id):
     conn = sqlite3.connect("CAT_MEMES.db")
     cursor = conn.cursor()
 
-    cursor.execute("SELECT * FROM picture WHERE user_id = ?",(user_id,))
+    cursor.execute("SELECT picture_link FROM picture WHERE user_id = ?",(user_id,))
     
-    imges = cursor.fetchall
+    imges = cursor.fetchall()
     return imges
 
 if __name__ == "__main__":

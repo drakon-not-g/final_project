@@ -10,13 +10,6 @@ app.secret_key = "a3487wgeyufrt2673g4yug"
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-imges = database.get_pictures(5)
-print(imges)
-print(imges)
-print(imges)
-print(imges)
-print(imges)
-
 @app.route("/")
 def index():
     
@@ -74,7 +67,8 @@ def creater_img():
 
 @app.route("/gareley")
 def gareley():
-    images = []
+    images = database.get_pictures(session["user_id"])
+    print(images)
     return render_template("gareley.html",imgs=images)
 
 @app.route("/login", methods=["POST","GET"])
