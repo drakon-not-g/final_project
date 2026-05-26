@@ -33,7 +33,6 @@ def creater():
 
 @app.route("/creater_img", methods=["POST"])
 def creater_img():
-    print("robit ili net")
     img_url = request.form.get("image")
     img_url = img_url.lstrip("/")
 
@@ -57,11 +56,11 @@ def creater_img():
     
     output_name = f"{uuid.uuid4()}.jpg"
     
-    output_path = os.path.join("static/memes", output_name)
+    output_path = os.path.join("static/img", output_name)
     
     image.save(output_path)
     
-    return redirect(f"/static/memes/{output_name}")
+    return redirect(f"/static/img/{output_name}")
 
 @app.route("/gareley")
 def gareley():
